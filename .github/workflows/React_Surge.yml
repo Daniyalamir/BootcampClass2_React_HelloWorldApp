@@ -28,7 +28,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Installing the Node Virtually
-        uses: node/setup-node@v2-beta
+        uses: actions/setup-node@v2-beta
         with: 
              node-version: 14.17.0
       - name: Github action for yarn
