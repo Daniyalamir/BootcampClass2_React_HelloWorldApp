@@ -28,7 +28,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Installing the Node Virtually
-        uses: node/setup-node@v2-beta
+        uses: actions/setup-node@v2-beta
         with: 
              node-version: 14.17.0
       - name: Github action for yarn
@@ -36,11 +36,16 @@ jobs:
         with:
           # Yarn command
           cmd: install
+          # running my command
+          
+      -  name: Running a build command
+         run:  npm build 
+        
       - name: Installing Surge 
-        run: npm install -g surge 
+        run: npm install --global surge 
         
       - name: deploying on surge app 
-        run: surge ./build https://react_helloworldapp.surge.sh/ --token{{secrets.SURGE}}
+        run: surge ./build https://react_helloworldapp.surge.sh/ --token ${{secrets.SURGETOKEN}}
         
 
   
